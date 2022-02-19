@@ -10,7 +10,8 @@
 
 <body>
     <div id="app">
-        <component :is="currentComp" :user-info="user"></component>
+        <keep-alive>
+            <component :is="currentComp" :user-info="user"></component>
         </keep-alive>
         <div>
             <button v-if="!noUpPage()" @click="prev">上一步</button>
