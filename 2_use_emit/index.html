@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <keep-alive>
+            <component :is="currentComp" :user-info="user" @change-page="changePage"></component>
+        </keep-alive>
+    </div>
+
+    <script type="text/x-template" id="first">
+        <div>
+            <label for="username">姓名</label>
+            <input type="text" id="username" v-model="userInfo.username">
+        </div>
+        <div>
+            <label for="phone">電話</label>
+            <input type="text" id="phone" v-model="userInfo.phone" >
+        </div>
+        <div>
+            <button @click="goToSecond">下一步</button>
+        </div>
+    </script>
+
+
+    <script type="text/x-template" id="second">
+        <div>
+            <label for="address">地址</label>
+            <input type="text" id="address" v-model="userInfo.address">
+        </div>
+        <div>
+            <button @click="goToFirst">上一步</button>
+            <button @click="goToThird">下一步</button>
+        </div>
+    </script>
+
+
+    <script type="text/x-template" id="third">
+        <div>
+            <h2>請確認資料:</h2>
+            <p>{{ userInfo.username }}</p>
+            <p>{{ userInfo.phone }}</p>
+            <p>{{ userInfo.address }}</p>
+        </div>
+        <div>
+            <button @click="goToSecond">上一步</button>
+        </div>
+    </script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
