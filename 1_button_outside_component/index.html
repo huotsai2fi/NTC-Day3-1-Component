@@ -14,8 +14,8 @@
             <component :is="currentComp" :user-info="user"></component>
         </keep-alive>
         <div>
-            <button v-if="!noUpPage()" @click="prev">上一步</button>
-            <button v-if="!noDownPage()" @click="next">下一步</button>
+            <button v-if="!noUpPage" @click="prev">上一步</button>
+            <button v-if="!noDownPage" @click="next">下一步</button>
         </div>
     </div>
 
